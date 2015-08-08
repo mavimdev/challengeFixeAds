@@ -1,0 +1,131 @@
+/* All document */
+* {
+    font-family: "Verdana", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+/* Placeholders */
+::-webkit-input-placeholder {
+   font-style: italic;
+    font-size: 11px;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   font-style: italic;
+    font-size: 11px;
+}
+:-ms-input-placeholder {  
+   font-style: italic; 
+    font-size: 11px;
+}
+/* form */
+
+label {
+    font-weight: bold;
+    line-height: 25px;
+}
+
+.register-body {
+    width: 75%;
+    margin: auto;
+}
+
+.register-form {
+    padding: 15px;
+    background-color: #EFEFEF;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 1px 1px 2px rgba(195,195,195,1);
+    -moz-box-shadow: 0px 1px 1px 2px rgba(195,195,195,1);
+    box-shadow: 0px 1px 1px 2px rgba(195,195,195,1);
+}
+
+.col-left {
+    width: 35%;
+    text-align: right;
+    padding-right: 25px;
+}
+
+.title1 {
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+.title2 {
+    font-size: 12px;
+    margin: 6px 0;
+}
+
+.field {
+    display: flex;
+    width: 85%;
+    padding: 6px;
+}
+
+.same-line {
+    display: flex;
+    width: 100%;
+}
+
+.col-right {
+    width: 65%;
+}
+
+.col-right.col-half input:first-of-type {
+    width: 45%;
+    float: left;
+}
+
+.col-right.col-half input:nth-of-type(2) {
+    position: relative;
+    width: 45%;
+    float: left;
+    left: 2.5%;
+}
+
+.col-right.col-part input:first-of-type {
+    width: 27%;
+    float: left;
+}
+
+.col-right.col-part input:nth-of-type(2) {
+    position: relative;
+    width: 63%;
+    float: left;
+    left: 2.5%;
+}
+
+.col-right input {
+    width: 97%;
+    border: solid #bbb 1px;
+    border-radius: 3px;
+    padding: 2px 2%;
+    height: 19px;
+}
+
+.col-right .half {
+    width: 45%;
+}
+
+.col-right .submit-button {
+    width: 30%;
+    color: white;
+    font-weight: bold;
+    height: 25px;
+    border-color: #0969AC;
+    background-image: linear-gradient(bottom, #0969AC 50%, #3695BB 50%);
+    background-image: -o-linear-gradient(bottom, #0969AC 50%, #3695BB 50%);
+    background-image: -moz-linear-gradient(bottom, #0969AC 50%, #3695BB 50%);
+    background-image: -webkit-linear-gradient(bottom, #0969AC 50%, #3695BB 50%);
+    background-image: -ms-linear-gradient(bottom, #0969AC 50%, #3695BB 50%);
+}
+
+.align-right {
+    text-align: right;
+}
+
+label em {
+    color: red;
+    font-size: 90%;
+    font-weight: bold;
+    margin-left: -2px;
+}
+
