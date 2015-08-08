@@ -6,8 +6,8 @@
         <title>Challenge FixeAds</title>
     </head>
     <body class="register-body">
-       <div class="title1">Registe-se gratuitamente</div>
-       <div class="title2">Registe-se de forma fácil e rápida. O registo é rápido e grátis</div>
+        <div class="title1">Registe-se gratuitamente</div>
+        <div class="title2">Registe-se de forma fácil e rápida. O registo é rápido e grátis</div>
         <form action="" class="register-form">
             <!-- EMAIL -->
             <div class="field">
@@ -36,29 +36,30 @@
             </div>
 
             <!-- PASSWORD -->
-            <div class="field">
+            <div class="field password">
                 <div class="col-left">
                     <label for="password">
                         Password
                         <em>*</em>
                     </label>
-                </div>
-                <div class="col-right">
-                    <input class="half" type="password" id="password">
-                </div>
-            </div>
-
-            <!-- PASSWORD CONFIRMATION -->
-            <div class="field">
-                <div class="col-left">
                     <label for="confirm-password">
                         Confirmar Password
                         <em>*</em>
                     </label>
                 </div>
                 <div class="col-right">
-                    <input class="half" type="password" id="confirm-password">
-                </div>
+                    <div>
+                        <div>
+                            <input type="password" id="password">
+                        </div>
+                        <div>
+                            <input type="password" id="confirm-password"> 
+                        </div>
+                    </div>
+                    <div class="password-security">
+                        <p>A sua password é segura?</p>
+                    </div>
+                </div>          
             </div>
 
             <!-- NAME -->
@@ -72,10 +73,9 @@
                 <div class="col-right col-half">
                     <input placeholder="Nome" type="text" id="first-name">
                     <input placeholder="Apelido" type="text" id="last-name">
-
                 </div>
-
             </div>
+
             <!-- ADDRESS -->
             <div class="field">
                 <div class="col-left">
@@ -137,8 +137,8 @@
                 </div>
             </div>
 
-          <!-- SUBMIT BUTTON -->
-           <div class="field">
+            <!-- SUBMIT BUTTON -->
+            <div class="field">
                 <div class="col-left">
                 </div>
                 <div class="col-right">
