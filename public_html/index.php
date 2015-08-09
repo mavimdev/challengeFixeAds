@@ -14,6 +14,7 @@
 
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"
               name="regForm" class="register-form" onsubmit="return(validateForm());">
+
             <!-- EMAIL -->
             <div class="field">
                 <div class="col-left">
@@ -162,6 +163,13 @@
                     <div id="main-error" class="error">
                         O formulário apresenta alguns erros
                     </div>
+
+                    <?php
+                        if (!$success) { ?>
+                            <div class="server-error">
+                                Ocorreu um erro. Volte a tentar mais tarde
+                            </div>
+                    <?php } ?>
                 </div>
             </div>
 

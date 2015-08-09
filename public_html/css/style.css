@@ -178,10 +178,14 @@ label em {
     padding: 6px;
 }
 
-.error {
+.error, .server-error {
     width: 300px;
     color: red;
     padding: 5px 0 0 5px;
+    display: block;
+}
+
+.error {
     display: none;
 }
 

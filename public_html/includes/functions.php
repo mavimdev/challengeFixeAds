@@ -10,6 +10,9 @@ $data->firstName = $data->lastName = "";
 $data->address = $data->postalCode = $data->city = $data->country = "";
 $data->nif = $data->telephone = "";
 
+// variavel to hold the success of the registration
+$success = true;
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $data->email = test_input($_POST["email"]);
     $data->confirmEmail = test_input($_POST["confirmEmail"]);
@@ -36,7 +39,7 @@ function test_input($data) {
 }
 
 function insertData($data) {
-    global $conn;
+    global $conn, $success;
 
     $sql = "INSERT INTO registration (
     email,
@@ -63,9 +66,10 @@ function insertData($data) {
     )";
 
     if ($conn && $conn->query($sql) === TRUE) {
+        $success = true;
         header('Location: templates/success.php');
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        $success = false;
     }
 
     $conn->close();
