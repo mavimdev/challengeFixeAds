@@ -58,10 +58,10 @@
                 <div class="col-right">
                     <div>
                         <div>
-                            <input type="password" id="password" name="password" onchange="resetError('password')">
+                            <input type="password" id="password" name="password" onkeyup="resetError('password')">
                         </div>
                         <div>
-                            <input type="password" id="confirm-password" name="confirmPassword" onchange="resetError('password')" >
+                            <input type="password" id="confirm-password" name="confirmPassword" onkeyup="resetError('password')" >
                             <span class="error" id="passwordErr"></span>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                 <div class="col-right col-part">
                     <div>
                         <input placeholder="Ex. 9999-999" type="text"
-                               id="postal-code" name="postalCode" onchange="resetError('postalCode')">
+                               id="postal-code" name="postalCode" onkeyup="resetError('postalCode')">
                         <input type="text" id="city" name="city">
                         <span class="error" id="postalCodeErr"></span>
                     </div>
@@ -122,7 +122,7 @@
                     </label>
                 </div>
                 <div class="col-right">
-                    <select class="half" id="country" name="country" onchange="resetError('telephone')">
+                    <select class="half" id="country" name="country" onkeyup="resetError('telephone')">
                     </select>
                 </div>
             </div>
@@ -135,7 +135,7 @@
                     </label>
                 </div>
                 <div class="col-right">
-                    <input class="half" type="tel" id="nif" name="nif" onchange="resetError('nif')">
+                    <input class="half" type="tel" id="nif" name="nif" onkeyup="resetError('nif')">
                     <span class="error" id="nifErr"></span>
                 </div>
             </div>
@@ -149,7 +149,7 @@
                 </div>
                 <div class="col-right">
                     <input placeholder="Insira o número aqui"
-                           class="half" type="tel" id="telephone" name="telephone" onchange="resetError('telephone')">
+                           class="half" type="tel" id="telephone" name="telephone" onkeyup="resetError('telephone')">
                     <span class="error" id="telephoneErr"></span>
                 </div>
             </div>

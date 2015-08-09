@@ -12,8 +12,10 @@ function validateForm() {
 }
 
 function resetError(element) {
-    document.getElementById(element + 'Err').style.display = 'none';
-    mainErrorElement = document.getElementById('main-error').style.display = 'none';
+    window.setTimeout(function () {
+        document.getElementById(element + 'Err').style.display = 'none';
+        document.getElementById('main-error').style.display = 'none';
+    }, 100);
 }
 
 function setError(id, msg) {
@@ -36,8 +38,8 @@ function checkEmail(element) {
 }
 
 function onAJAXSuccess(response) {
-    response = response.replace(/(\r\n|\n|\r)/gm,"");
-    if(response === 'EMAIL_IN_USE') {
+    response = response.replace(/(\r\n|\n|\r)/gm, "");
+    if (response === 'EMAIL_IN_USE') {
         setError('emailErr', 'O email introduzido já está em uso');
         document.regForm.email.focus();
     }
@@ -113,36 +115,35 @@ function loadSelect() {
 // helper function for cross-browser request object
 function getRequest(url, success, error, data) {
     var req = false;
-    try{
+    try {
         // most browsers
         req = new XMLHttpRequest();
-    } catch (e){
+    } catch (e) {
         // IE
-        try{
+        try {
             req = new ActiveXObject("Msxml2.XMLHTTP");
         } catch(e) {
             // try an older version
-            try{
+            try {
                 req = new ActiveXObject("Microsoft.XMLHTTP");
-            } catch(e) {
+            } catch (e) {
                 return false;
             }
         }
     }
     if (!req) return false;
-    if (typeof success != 'function') success = function () {};
-    if (typeof error!= 'function') error = function () {};
+    if (typeof success !== 'function') success = function () {};
+    if (typeof error!== 'function') error = function () {};
     req.onreadystatechange = function(){
-        if(req.readyState == 4) {
+        if(req.readyState === 4) {
             return req.status === 200 ?
                 success(req.responseText) : error(req.status);
         }
-    }
+    };
     req.open("GET", url + '?email=' + data, true);
     req.send();
     return req;
 }
-
 
 (function initForm() {
     document.addEventListener("DOMContentLoaded", function() {
