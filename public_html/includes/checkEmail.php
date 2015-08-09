@@ -15,7 +15,7 @@ function test_input($data) {
 }
 
 // Create connection
-$conn = new mysqli('localhost', 'fixeads', 'mypass', 'challenge_fixeads');
+$conn = new mysqli($servername, $username, $password, $bdname);
 
 // Check connection
 if ($conn->connect_error) {

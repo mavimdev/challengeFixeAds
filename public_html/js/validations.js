@@ -5,7 +5,6 @@ var emailInUse = false;
 /* validation of the form on submit */
 function validateForm() {
     var success = true;
-    checkEmail(document.regForm.email);
     success = validateEmail() && success;
     success = validatePassword() && success;
     success = validatePostalCode() && success;
