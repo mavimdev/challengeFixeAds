@@ -139,8 +139,6 @@ label {
     width: 45%;
 }
 
-
-
 .col-right .submit-button {
     width: 30%;
     margin-top: 20px;
@@ -153,6 +151,14 @@ label {
     background-image: -moz-linear-gradient(bottom, #0969AC 50%, #3695BB 50%);
     background-image: -webkit-linear-gradient(bottom, #0969AC 50%, #3695BB 50%);
     background-image: -ms-linear-gradient(bottom, #0969AC 50%, #3695BB 50%);
+}
+
+.col-right .submit-button:hover {
+    opacity: 0.85;
+}
+
+.col-right .submit-button:active {
+    opacity: 0.7;
 }
 
 .align-right {
