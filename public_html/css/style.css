@@ -220,16 +220,17 @@ label em {
 /* Password meter */
 #password-level {
     padding: 0;
-	margin: 5px;
-	height: 5px;
-	width: 85px;
-    border: solid 1px #ccc;
+    margin: 5px;
+    height: 5px;
+    width: 85px;
+    background-color: #FAFFBD;
+    border: solid 1px #CCC;
 }
 
 #password-level #password-bar {
     padding: 0;
-	height: 100%;
-	background: #00CCFF;
-	width: 0%;
-	transition: width 500ms ease-in;
+    height: 100%;
+    background: #00CCFF;
+    width: 0%;
+    transition: width 500ms ease-in;
 }
