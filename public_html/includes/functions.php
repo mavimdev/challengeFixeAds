@@ -37,6 +37,7 @@ function test_input($data) {
 
 function insertData($data) {
     global $conn;
+
     $sql = "INSERT INTO registration (
     email,
     password,
@@ -62,7 +63,7 @@ function insertData($data) {
     )";
 
     if ($conn && $conn->query($sql) === TRUE) {
-        echo "Success";
+        header('Location: templates/success.php');
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

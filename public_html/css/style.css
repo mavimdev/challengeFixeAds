@@ -6,15 +6,15 @@
 
 /* Placeholders */
 ::-webkit-input-placeholder {
-   font-style: italic;
+    font-style: italic;
     font-size: 11px;
 }
 ::-moz-placeholder {  /* Firefox 19+ */
-   font-style: italic;
+    font-style: italic;
     font-size: 11px;
 }
 :-ms-input-placeholder {
-   font-style: italic;
+    font-style: italic;
     font-size: 11px;
 }
 /* form */
@@ -174,7 +174,6 @@ label em {
 
 
 .field-block {
-
     width: 85%;
     padding: 6px;
 }
@@ -184,4 +183,15 @@ label em {
     color: red;
     padding: 5px 0 0 5px;
     display: none;
+}
+
+.success {
+    padding: 0;
+    height: 500px;
+    line-height: 500px;
+    text-align: center;
+}
+
+.success p {
+    font-size: 14px;
 }

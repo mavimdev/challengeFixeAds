@@ -159,6 +159,9 @@
                 </div>
                 <div class="col-right">
                     <input class="submit-button" type="submit" value="Registo">
+                    <div id="main-error" class="error">
+                        O formulário apresenta alguns erros
+                    </div>
                 </div>
             </div>
 

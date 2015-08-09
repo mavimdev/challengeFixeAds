@@ -13,13 +13,16 @@ function validateForm() {
 
 function resetError(element) {
     document.getElementById(element + 'Err').style.display = 'none';
+    mainErrorElement = document.getElementById('main-error').style.display = 'none';
 }
 
 function setError(id, msg) {
-    var errorElement;
+    var errorElement, mainErrorElement;
     errorElement = document.getElementById(id);
     errorElement.innerHTML = msg;
     errorElement.style.display = 'block';
+    mainErrorElement = document.getElementById('main-error');
+    mainErrorElement.style.display = 'block';
 }
 
 function checkEmail(element) {
