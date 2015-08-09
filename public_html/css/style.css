@@ -13,8 +13,8 @@
    font-style: italic;
     font-size: 11px;
 }
-:-ms-input-placeholder {  
-   font-style: italic; 
+:-ms-input-placeholder {
+   font-style: italic;
     font-size: 11px;
 }
 /* form */
@@ -130,6 +130,11 @@ label {
     height: 19px;
 }
 
+.col-right select.half  {
+    height: 25px;
+    width: 49.5%;
+}
+
 .col-right .half {
     width: 45%;
 }
@@ -138,6 +143,7 @@ label {
 
 .col-right .submit-button {
     width: 30%;
+    margin-top: 20px;
     color: white;
     font-weight: bold;
     height: 25px;
@@ -162,7 +168,14 @@ label em {
 
 
 .field-block {
-    
+
     width: 85%;
     padding: 6px;
+}
+
+.error {
+    width: 300px;
+    color: red;
+    padding: 5px 0 0 5px;
+    display: none;
 }
