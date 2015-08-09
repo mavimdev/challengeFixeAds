@@ -25,7 +25,8 @@
                 </div>
                 <div class="col-right">
                     <input type="email" id="email" name="email" maxlength="100"
-                           onkeyup="resetError('email')" onchange="checkEmail(this)" >
+                           onkeyup="resetError('email')" onchange="checkEmail(this)" required>
+                    <span class="error" id="emailInUseErr"></span>
                 </div>
             </div>
 
@@ -38,7 +39,8 @@
                     </label>
                 </div>
                 <div class="col-right">
-                    <input type="email" id="confirm-email" name="confirmEmail" onkeyup="resetError('email')" >
+                    <input type="email" id="confirm-email" name="confirmEmail" maxlength="100"
+                           onkeyup="resetError('email')" required>
                     <span class="error" id="emailErr"></span>
                 </div>
             </div>
@@ -58,15 +60,22 @@
                 <div class="col-right">
                     <div>
                         <div>
-                            <input type="password" id="password" name="password" onkeyup="resetError('password')">
+                            <input type="password" id="password" name="password" maxlength="16"
+                                   onkeyup="checkPasswordStrength(this.value)" required>
                         </div>
                         <div>
-                            <input type="password" id="confirm-password" name="confirmPassword" onkeyup="resetError('password')" >
+                            <input type="password" id="confirm-password" name="confirmPassword" maxlength="16"
+                                   onkeyup="resetError('password')" required>
                             <span class="error" id="passwordErr"></span>
                         </div>
                     </div>
                     <div class="password-security">
                         <p>A sua password é segura?</p>
+                        <span>Pouco segura</span>
+                        <div id="password-level">
+                            <div id="password-bar"></div>
+                        </div>
+                        <span>Muito segura</span>
                     </div>
                 </div>
             </div>
@@ -80,8 +89,8 @@
                     </label>
                 </div>
                 <div class="col-right col-half">
-                    <input placeholder="Nome" type="text" id="first-name" name="firstName" >
-                    <input placeholder="Apelido" type="text" id="last-name" name="lastName" >
+                    <input placeholder="Nome" type="text" id="first-name" name="firstName" maxlength="100" required>
+                    <input placeholder="Apelido" type="text" id="last-name" name="lastName" maxlength="100" required>
                 </div>
             </div>
 
@@ -93,7 +102,7 @@
                     </label>
                 </div>
                 <div class="col-right">
-                    <input type="text" id="address" name="address">
+                    <input type="text" id="address" name="address" maxlength="100">
                 </div>
             </div>
 
@@ -106,9 +115,9 @@
                 </div>
                 <div class="col-right col-part">
                     <div>
-                        <input placeholder="Ex. 9999-999" type="text"
+                        <input placeholder="Ex. 9999-999" type="text" maxlength="20"
                                id="postal-code" name="postalCode" onkeyup="resetError('postalCode')">
-                        <input type="text" id="city" name="city">
+                        <input type="text" id="city" name="city" maxlength="100">
                         <span class="error" id="postalCodeErr"></span>
                     </div>
                 </div>
@@ -135,7 +144,8 @@
                     </label>
                 </div>
                 <div class="col-right">
-                    <input class="half" type="tel" id="nif" name="nif" onkeyup="resetError('nif')">
+                    <input class="half" type="tel" id="nif" name="nif" maxlength="20"
+                           onkeyup="resetError('nif')">
                     <span class="error" id="nifErr"></span>
                 </div>
             </div>
@@ -148,7 +158,7 @@
                     </label>
                 </div>
                 <div class="col-right">
-                    <input placeholder="Insira o número aqui"
+                    <input placeholder="Insira o número aqui" maxlength="50"
                            class="half" type="tel" id="telephone" name="telephone" onkeyup="resetError('telephone')">
                     <span class="error" id="telephoneErr"></span>
                 </div>
@@ -165,10 +175,10 @@
                     </div>
 
                     <?php
-                        if (!$success) { ?>
-                            <div class="server-error">
-                                Ocorreu um erro. Volte a tentar mais tarde
-                            </div>
+if (!$success) { ?>
+                    <div class="server-error">
+                        Ocorreu um erro. Volte a tentar mais tarde
+                    </div>
                     <?php } ?>
                 </div>
             </div>

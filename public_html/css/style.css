@@ -1,5 +1,5 @@
 /* All document */
-* {
+body {
     font-family: "Verdana", Arial, Helvetica, sans-serif;
     font-size: 12px;
 }
@@ -51,7 +51,7 @@ label {
 }
 
 .title1 {
-    font-size: 18px;
+    font-size: 17px;
     margin: 15px 0;
 }
 
@@ -74,9 +74,22 @@ label {
     width: 65%;
 }
 
-.field.password .col-right password-security {
+.field.password .col-right .password-security {
+    position: absolute;
+    width: 70%;
+    left: 57%;
+    margin-top: 20px;
+}
+
+.password-security p {
+    font-size: 11px;
+    margin: 3px 0;
+}
+
+.password-security span {
+    font-size: 11px;
+    margin: 0;
     float: left;
-    height: 72px;
 }
 
 .field.password .col-right div {
@@ -139,6 +152,7 @@ label {
     width: 45%;
 }
 
+/* submit button */
 .col-right .submit-button {
     width: 30%;
     margin-top: 20px;
@@ -178,6 +192,7 @@ label em {
     padding: 6px;
 }
 
+/* error messages */
 .error, .server-error {
     width: 300px;
     color: red;
@@ -198,4 +213,21 @@ label em {
 
 .success p {
     font-size: 14px;
+}
+
+/* Password meter */
+#password-level {
+    padding: 0;
+	margin: 5px;
+	height: 5px;
+	width: 85px;
+    border: solid 1px #ccc;
+}
+
+#password-level #password-bar {
+    padding: 0;
+	height: 100%;
+	background: #00CCFF;
+	width: 0%;
+	transition: width 500ms ease-in;
 }

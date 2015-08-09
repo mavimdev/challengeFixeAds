@@ -4,8 +4,8 @@ include "db_connect.php";
 
 // define variable to hold data
 $data = new stdClass();
-$data->email = $data->confirmEmail = "";
-$data->password = $data->confirmPassword = "";
+$data->email = "";
+$data->password = "";
 $data->firstName = $data->lastName = "";
 $data->address = $data->postalCode = $data->city = $data->country = "";
 $data->nif = $data->telephone = "";
@@ -16,8 +16,7 @@ $success = true;
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $data->email = test_input($_POST["email"]);
     $data->confirmEmail = test_input($_POST["confirmEmail"]);
-    $data->password = md5(test_input($_POST["password"]));
-    $data->confirmPassword = test_input($_POST["confirmPassword"]);
+    $data->password = md5($_POST["password"]);
     $data->firstName = test_input($_POST["firstName"]);
     $data->lastName = test_input($_POST["lastName"]);
     $data->address = test_input($_POST["address"]);

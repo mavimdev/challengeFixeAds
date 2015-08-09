@@ -1,16 +1,21 @@
 'use strict';
 
+var emailInUse = false;
+
+/* validation of the form on submit */
 function validateForm() {
     var success = true;
+    checkEmail(document.regForm.email);
     success = validateEmail() && success;
     success = validatePassword() && success;
     success = validatePostalCode() && success;
     success = validateNif() && success;
     success = validateTelephone() && success;
-
+    success = !emailInUse && success;
     return success;
 }
 
+/* reset the error when the user change the input data */
 function resetError(element) {
     window.setTimeout(function () {
         document.getElementById(element + 'Err').style.display = 'none';
@@ -18,6 +23,7 @@ function resetError(element) {
     }, 100);
 }
 
+/* set a error on a field with a message */
 function setError(id, msg) {
     var errorElement, mainErrorElement;
     errorElement = document.getElementById(id);
@@ -27,6 +33,7 @@ function setError(id, msg) {
     mainErrorElement.style.display = 'block';
 }
 
+/* check if the email is already in use, using a AJAX call */
 function checkEmail(element) {
     getRequest(
         'includes/checkEmail.php',
@@ -34,17 +41,21 @@ function checkEmail(element) {
         onAJAXError,
         element.value
     );
-    return false;
 }
 
+/* AJAX success callback */
 function onAJAXSuccess(response) {
     response = response.replace(/(\r\n|\n|\r)/gm, "");
     if (response === 'EMAIL_IN_USE') {
-        setError('emailErr', 'O email introduzido já está em uso');
-        document.regForm.email.focus();
+        emailInUse = true;
+        setError('emailInUseErr', 'O email introduzido já está em uso');
+    } else {
+        emailInUse = false;
+        resetError('emailInUse');
     }
 }
 
+/* AJAX error callback */
 function onAJAXError(error) {
     // something went wrong
     console.log(error);
@@ -101,6 +112,7 @@ function validateNif() {
     return true;
 }
 
+// load the options for the country select
 function loadSelect() {
     var select = document.getElementById('country');
     var option, key;
@@ -112,7 +124,7 @@ function loadSelect() {
     }
 }
 
-// helper function for cross-browser request object
+// helper function for cross-browser request object - AJAX call
 function getRequest(url, success, error, data) {
     var req = false;
     try {
@@ -145,6 +157,61 @@ function getRequest(url, success, error, data) {
     return req;
 }
 
+/* to draw the password strength graphic */
+function checkPasswordStrength(password) {
+    resetError('password'); // reset the error message
+    var percent = calculatePasswordStrength(password);
+    document.getElementById('password-bar').style.width = percent + '%';
+}
+
+/* password strength meter algorithm */
+/* the algorithm will use 4 sets: lowercase letters, uppercase letters, numbers and symbols.
+* I will consider that the maximum strength will use 16 digits with characters of the 4 sets. */
+function calculatePasswordStrength(password) {
+    var maxStrength = 16*4;
+    var total, percent;
+    var set = {
+        lowerLetters: 'abcdefghijklmnopqrstuvwxyz',
+        upperLetters: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+        numbers: '0123456789',
+        symbols: '!&%/()=?^*+][#><;:,._-|'
+    };
+    // to count each type of digits (lowers, uppers, numbers and symbols)
+    var l=0, u=0, n=0, s=0;
+
+    password = password.split('');
+    for (var i=0; i<password.length; i++) {
+        if(set.lowerLetters.indexOf(password[i]) !== -1) {
+            l++;
+        } else if (set.upperLetters.indexOf(password[i]) !== -1) {
+            u++;
+        } else if (set.numbers.indexOf(password[i]) !== -1) {
+            n++;
+        } else {
+            s++;
+        }
+    }
+
+    var factor=0;
+    if (l > 0) {
+        factor++;
+    }
+    if (u > 0) {
+        factor++;
+    }
+    if (n > 0) {
+        factor++;
+    }
+    if (s > 0) {
+        factor++;
+    }
+
+    total = password.length * factor;
+    percent = total / maxStrength * 100;
+    return parseInt(percent, 10);
+}
+
+/* initialization on start */
 (function initForm() {
     document.addEventListener("DOMContentLoaded", function() {
         loadSelect();
