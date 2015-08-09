@@ -11,7 +11,9 @@
     <body class="register-body">
         <div class="title1">Registe-se gratuitamente</div>
         <div class="title2">Registe-se de forma fácil e rápida. O registo é rápido e grátis</div>
-        <form action="" name="regForm" class="register-form" method="post" onsubmit="return(validateForm());">
+
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"
+              name="regForm" class="register-form" onsubmit="return(validateForm());">
             <!-- EMAIL -->
             <div class="field">
                 <div class="col-left">
@@ -21,7 +23,8 @@
                     </label>
                 </div>
                 <div class="col-right">
-                    <input type="email" id="email" name="email" onchange="resetError('email')" >
+                    <input type="email" id="email" name="email" maxlength="100"
+                           onkeyup="resetError('email')" onchange="checkEmail(this)" >
                 </div>
             </div>
 
@@ -34,7 +37,7 @@
                     </label>
                 </div>
                 <div class="col-right">
-                    <input type="email" id="confirm-email" name="confirmEmail" onchange="resetError('email')" >
+                    <input type="email" id="confirm-email" name="confirmEmail" onkeyup="resetError('email')" >
                     <span class="error" id="emailErr"></span>
                 </div>
             </div>
@@ -146,7 +149,7 @@
                 <div class="col-right">
                     <input placeholder="Insira o número aqui"
                            class="half" type="tel" id="telephone" name="telephone" onchange="resetError('telephone')">
-                           <span class="error" id="telephoneErr"></span>
+                    <span class="error" id="telephoneErr"></span>
                 </div>
             </div>
 

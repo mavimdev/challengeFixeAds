@@ -29,7 +29,7 @@ label {
     margin: auto;
 }
 
-.register-form {
+.register-form, .success {
     padding: 15px;
     background-color: #EFEFEF;
     border-radius: 5px;
